@@ -1,7 +1,7 @@
 const keys = require('../config/keys.js')
 
 const myClientId = keys.spotifyClientId;
-const myRedirectUri = keys.myRedirectUri || "https://gfl-jammming.herokuapp.com/";
+const myRedirectUri = keys.myRedirectUri;
 const url = "https://api.spotify.com";
 
 let userAccessToken;
