@@ -1,7 +1,8 @@
 const keys = require('../config/keys.js')
+const redirect = require('../config/redirect.js')
 
 const myClientId = keys.spotifyClientId;
-const myRedirectUri = keys.myRedirectUri;
+const myRedirectUri = redirect.myRedirectUri;
 const url = "https://api.spotify.com";
 
 let userAccessToken;

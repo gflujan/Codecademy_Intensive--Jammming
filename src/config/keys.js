@@ -1,6 +1,5 @@
 module.exports = {
 	spotifyClientId: '73b375e9930846329057f8f9b18e7708',
-	myRedirectUri: 'http://localhost:3000/', // Local Machine URI
 };
 
 // https://vrrajkum.github.io/Jammming/
