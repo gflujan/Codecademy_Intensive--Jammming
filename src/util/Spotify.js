@@ -37,6 +37,7 @@ const Spotify = {
 
    search(term) {
       const retrievedAccessToken = Spotify.getAccessToken();
+
       return fetch(
          // This fetch request sends the search query to the Spotify API
          `${url}/v1/search?type=track&q=${term}`,

@@ -1,38 +1,40 @@
-import React from "react";
-import "./TrackList.css";
+// React
+import React from 'react';
 
-/* ---------------------------------------------
-// Importing additional/external modules
---------------------------------------------- */
-import { Track } from "../Track/Track";
+// Packages
+// Context
 
-class TrackList extends React.Component {
-	/*constructor(props) {
-		super(props);
+// Components
+import Track from '../Track/Track';
 
-		this.state = {  };
-	}*/
+// Assets
+// Constants
+// Utils / Methods
 
-	// Create an array of incoming tracks from the SearchResults
-	// This array will then feed & populate the track list below
+// Styles
+import './TrackList.css';
 
-	render() {
-		return (
-			<div className="TrackList">
-				{this.props.tracks.map(track => {
-					return (
-						<Track
-							track={track}
-							key={track.id}
-							onAdd={this.props.onAdd}
-							onRemove={this.props.onRemove}
-							isRemoval={this.props.isRemoval}
-						/>
-					);
-				})}
-			</div>
-		);
-	}
-}
+/* ========================================================================== */
+// DEFINING THE `TRACK LIST` COMPONENT
+/* ========================================================================== */
+const TrackList = props => {
+   const { isRemoval, onAdd, onRemove, tracks } = props;
 
-export { TrackList };
+   return (
+      <div className="TrackList">
+         {!!tracks.length && tracks.map(track => {
+            return (
+               <Track
+                  isRemoval={isRemoval}
+                  key={track.id}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  track={track}
+               />
+            );
+         })}
+      </div>
+   );
+};
+
+export default TrackList;

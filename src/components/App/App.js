@@ -1,153 +1,143 @@
-import React from "react";
-import "./App.css";
+// React
+import React, { Component } from 'react';
 
-/* ---------------------------------------------
-// Importing additional/external modules
---------------------------------------------- */
-import { SearchBar } from "../SearchBar/SearchBar";
-import { SearchResults } from "../SearchResults/SearchResults";
-import { Playlist } from "../Playlist/Playlist";
-import { Spotify } from "../../util/Spotify";
+// Packages
+// Context
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
+// Components
+import Playlist from '../Playlist/Playlist';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchResults/SearchResults';
 
-		this.state = {
-			searchResults: [],
-			playlistTracks: [],
-			playlistNamePlaceholder: "Playlist name",
-			playlistName: ""
-		};
+// Assets
+// Constants
 
-		this.addTrack = this.addTrack.bind(this);
-		this.removeTrack = this.removeTrack.bind(this);
-		this.clearPlaylistNamePlaceholder = this.clearPlaylistNamePlaceholder.bind(
-			this
-		);
-		this.restorePlaylistNamePlaceholder = this.restorePlaylistNamePlaceholder.bind(
-			this
-		);
-		this.updatePlaylistName = this.updatePlaylistName.bind(this);
-		this.savePlaylist = this.savePlaylist.bind(this);
-		this.search = this.search.bind(this);
-	}
+// Utils / Methods
+import Spotify from '../../util/Spotify';
 
-	// VERSION 1 - Search Method -- This gives the "TypeError: this.props.tracks.map is not a function"
-	search(term) {
-		Spotify.search(term).then(searchResults => {
-			this.setState({ searchResults: searchResults });
-		});
-	}
+// Styles
+import './App.css';
 
-	// VERSION 2 - Search Method -- This gives the same "TypeError: this.props.tracks.map is not a function"
-	/*async search(term) {
-		let searchResults = await Spotify.search(term);
-		console.log(searchResults);
-		this.setState({
-			searchResults: searchResults,
-		});
-  }*/
+class App extends Component {
+   constructor(props) {
+      super(props);
 
-	/*async search(term) {
-  let searchResults = await Spotify.search(term);*/
+      this.state = {
+         playlistName: '',
+         playlistNamePlaceholder: 'Playlist name',
+         playlistTracks: [],
+         searchResults: [],
+      };
 
-	// Version 1 -- this doesn't work; gives an error of "not a function"
+      [
+         // prettier-ignore
+         'addTrack',
+         'clear',
+         'clearPlaylistNamePlaceholder',
+         'removeTrack',
+         'restorePlaylistNamePlaceholder',
+         'savePlaylist',
+         'search',
+         'updatePlaylistName',
+      ].forEach(m => {
+         this[m] = this[m].bind(this);
+      });
+   }
 
-	addTrack(track) {
-		if (
-			this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)
-		) {
-			return;
-		} else {
-			let newPlaylistTracks = this.state.playlistTracks.push(track);
-			this.setState({ playlistTracks: newPlaylistTracks });
-		}
-	}
+   // VERSION 1 - Search Method -- This gives the "TypeError: this.props.tracks.map is not a function"
+   search(term) {
+      Spotify.search(term).then(searchResults => {
+         this.setState({ searchResults });
+      });
+   }
 
-	// Version #2 -- the problem with this is that I can add multiple copies of the same song, it's not checking to see if the track is already added
+   clear() {
+      this.setState({
+         playlistName: '',
+         playlistNamePlaceholder: 'Playlist name',
+         playlistTracks: [],
+         searchResults: [],
+      });
+   }
 
-	/*addTrack(track) {
-    let tracks = this.state.playlistTracks;
-    tracks.push(track);
+   addTrack(track) {
+      const { playlistTracks } = this.state;
+      const foundTrackID = playlistTracks.find(
+         savedTrack => savedTrack.id === track.id,
+      );
 
-    this.setState({playlistTracks: tracks});
-  }*/
+      // Prevents the user from adding duplicates (i.e. the same song) to the playlist
+      if (foundTrackID) {
+         return;
+      } else {
+         playlistTracks.push(track);
+         this.setState({ playlistTracks });
+      }
+   }
 
-	removeTrack(track) {
-		let newPlaylistTracks = this.state.playlistTracks.filter(
-			savedTrack => savedTrack.id !== track.id
-		);
-		this.setState({ playlistTracks: newPlaylistTracks });
-	}
+   removeTrack(track) {
+      const newPlaylistTracks = this.state.playlistTracks.filter(
+         savedTrack => savedTrack.id !== track.id,
+      );
 
-	// Update state to reflect focusing playlist name field
-	clearPlaylistNamePlaceholder() {
-		this.setState({
-			playlistNamePlaceholder: ""
-		});
-	}
+      this.setState({ playlistTracks: newPlaylistTracks });
+   }
 
-	// Update state to reflect blurring playlist name field
-	restorePlaylistNamePlaceholder() {
-		this.setState({
-			playlistNamePlaceholder: "Playlist name"
-		});
-	}
+   // Update state to reflect focusing playlist name field
+   clearPlaylistNamePlaceholder() {
+      this.setState({
+         playlistNamePlaceholder: '',
+      });
+   }
 
-	updatePlaylistName(name) {
-		this.setState({ playlistName: name });
-	}
+   // Update state to reflect blurring playlist name field
+   restorePlaylistNamePlaceholder() {
+      this.setState({
+         playlistNamePlaceholder: 'Playlist name',
+      });
+   }
 
-	savePlaylist() {
-		// Version #1
-		/*let trackURIs = [];
-		this.state.playlistTracks.forEach(track => trackURIs.push(track.uri));
-		return (trackURIs);*/
+   updatePlaylistName(name) {
+      this.setState({ playlistName: name });
+   }
 
-		// Version #2
-		/*let trackURIs = this.state.playlistTracks.map(track => track.uri);
-		return (trackURIs);*/
+   savePlaylist() {
+      Spotify.savePlaylist();
 
-		// Spotify Version
-		Spotify.savePlaylist();
+      this.setState({
+         playlistName: '',
+         playlistTracks: [],
+      });
+   }
 
-		this.setState({
-			playlistName: "New Playlist",
-			playlistTracks: []
-		});
-	}
-
-	render() {
-		return (
-			<div>
-				<h1>
-					Neo's [Ja<span className="highlight">mmm</span>ing] App
-				</h1>
-				<div className="App">
-					<SearchBar
-						onSearch={this.search}
-					/>
-					<div className="App-playlist">
-						<SearchResults
-							searchResults={this.state.searchResults}
-							onAdd={this.addTrack}
-						/>
-						<Playlist
-							playlistPlaceholder={this.state.playlistNamePlaceholder}
-							onFocus={this.clearPlaylistNamePlaceholder}
-              onBlur={this.restorePlaylistNamePlaceholder}
-							playlistName={this.state.playlistName}
-							playlistTracks={this.state.playlistTracks}
-							onRemove={this.removeTrack}
-							onNameChange={this.updatePlaylistName}
-							onSave={this.savePlaylist}
-						/>
-					</div>
-				</div>
-			</div>
-		);
-	}
+   render() {
+      return (
+         <div>
+            <h1>
+               Neo's [Ja<span className="highlight">mmm</span>ing] App
+            </h1>
+            <div className="App">
+               <SearchBar onClear={this.clear} onSearch={this.search} />
+               <div className="App-playlist">
+                  <SearchResults
+                     onAdd={this.addTrack}
+                     searchResults={this.state.searchResults}
+                  />
+                  <Playlist
+                     onBlur={this.restorePlaylistNamePlaceholder}
+                     onFocus={this.clearPlaylistNamePlaceholder}
+                     onNameChange={this.updatePlaylistName}
+                     onRemove={this.removeTrack}
+                     onSave={this.savePlaylist}
+                     playlistName={this.state.playlistName}
+                     playlistPlaceholder={this.state.playlistNamePlaceholder}
+                     playlistTracks={this.state.playlistTracks}
+                  />
+               </div>
+            </div>
+         </div>
+      );
+   }
 }
 
 export { App };

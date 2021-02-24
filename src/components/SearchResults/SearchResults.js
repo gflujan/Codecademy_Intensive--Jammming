@@ -1,38 +1,30 @@
-import React from "react";
-import "./SearchResults.css";
+// React
+import React from 'react';
 
-/* ---------------------------------------------
-// Importing additional/external modules
---------------------------------------------- */
-import { TrackList } from "../TrackList/TrackList";
+// Packages
+// Context
 
-class SearchResults extends React.Component {
-	/*constructor(props) {
-		super(props);
+// Components
+import TrackList from '../TrackList/TrackList';
 
-		this.state = {  };
-	}*/
+// Assets
+// Constants
+// Utils / Methods
+// Styles
+import './SearchResults.css';
 
-	renderSearchResults() {
-		/*return (
-			Object.forEach(
+/* ========================================================================== */
+// DEFINING THE `SEARCH RESULTS` COMPONENT
+/* ========================================================================== */
+const SearchResults = props => {
+   const { onAdd, searchResults } = props;
 
-			);
-		);*/
-	}
+   return (
+      <div className="SearchResults">
+         <h2>Results</h2>
+         <TrackList isRemoval={false} onAdd={onAdd} tracks={searchResults} />
+      </div>
+   );
+};
 
-	render() {
-		return (
-			<div className="SearchResults">
-				<h2>Results</h2>
-				<TrackList
-					tracks={this.props.searchResults}
-					onAdd={this.props.onAdd}
-					isRemoval={false}
-				/>
-			</div>
-		);
-	}
-}
-
-export { SearchResults };
+export default SearchResults;

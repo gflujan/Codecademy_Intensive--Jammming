@@ -1,54 +1,47 @@
-import React from "react";
-import "./Track.css";
+// React
+import React from 'react';
 
-class Track extends React.Component {
-	constructor(props) {
-		super(props);
+// Packages
+// Context
+// Components
+// Assets
+// Constants
+// Utils / Methods
 
-		this.addTrack = this.addTrack.bind(this);
-		this.removeTrack = this.removeTrack.bind(this);
-	}
+// Styles
+import './Track.css';
 
-	addTrack() {
-		this.props.onAdd(this.props.track);
-	}
+/* ========================================================================== */
+// DEFINING THE `TRACK` COMPONENT
+/* ========================================================================== */
+const Track = props => {
+   const { isRemoval, onAdd, onRemove, track } = props;
+   const { album, artist, name } = track;
 
-	removeTrack() {
-		this.props.onRemove(this.props.track);
-	}
+   return (
+      <div>
+         <div className="Track">
+            <div className="Track-information">
+               <h3>{name}</h3>
+               <p>
+                  {artist}
+                  {' | '}
+                  {album}
+               </p>
+            </div>
+            {isRemoval && (
+               <a className="Track-action" onClick={() => onRemove(track)}>
+                  -
+               </a>
+            )}
+            {!isRemoval && (
+               <a className="Track-action" onClick={() => onAdd(track)}>
+                  +
+               </a>
+            )}
+         </div>
+      </div>
+   );
+};
 
-	renderAction() {
-		if (this.props.isRemoval) {
-			return (
-				<a className="Track-action" onClick={this.removeTrack}>
-					-
-				</a>
-			);
-		}
-		return (
-			<a className="Track-action" onClick={this.addTrack}>
-				+
-			</a>
-		);
-	}
-
-	render() {
-		return (
-			<div>
-				<div className="Track">
-					<div className="Track-information">
-						<h3>{this.props.track.name}</h3>
-						<p>
-							{this.props.track.artist}
-							{" | "}
-							{this.props.track.album}
-						</p>
-					</div>
-					{this.renderAction()}
-				</div>
-			</div>
-		);
-	}
-}
-
-export { Track };
+export default Track;
