@@ -1,12 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+// React
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-/* ---------------------------------------------
-// Importing additional/external modules
---------------------------------------------- */
-import { App } from "./components/App/App";
-import registerServiceWorker from "./registerServiceWorker";
+// Packages
+// Context
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// Components
+import { App } from './components/App/App';
+
+// Assets
+// Constants
+
+// Utils / Methods
+import registerServiceWorker from './registerServiceWorker';
+
+// Styles
+import './index.css';
+
+/* ========================================================================== */
+// DEFINING THE `MAIN APP` RENDER OUTPUT
+/* ========================================================================== */
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
