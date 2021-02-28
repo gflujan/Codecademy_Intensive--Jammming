@@ -1,39 +1,43 @@
 // React
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // Packages
 // Context
 
 // Components
-import Track from '../Track/Track';
+import Track from "../Track/Track";
 
 // Assets
 // Constants
 // Utils / Methods
 
 // Styles
-import './TrackList.css';
+import "./TrackList.css";
 
 /* ========================================================================== */
 // DEFINING THE `TRACK LIST` COMPONENT
 /* ========================================================================== */
-const TrackList = props => {
+const TrackList = (props) => {
    const { isRemoval, onAdd, onRemove, tracks } = props;
+   console.log("🚀--BLLR? ------------------------------------------------------------");
+   console.log("🚀--BLLR? -> file: TrackList.js -> line 23 -> tracks", tracks);
+   console.log("🚀--BLLR? ------------------------------------------------------------");
 
    return (
       <div className="TrackList">
-         {tracks.length > 0 && tracks.map(track => {
-            return (
-               <Track
-                  isRemoval={isRemoval}
-                  key={track.id}
-                  onAdd={onAdd}
-                  onRemove={onRemove}
-                  track={track}
-               />
-            );
-         })}
+         {tracks.length > 0 &&
+            tracks.map((track) => {
+               return (
+                  <Track
+                     isRemoval={isRemoval}
+                     key={track.id}
+                     onAdd={onAdd}
+                     onRemove={onRemove}
+                     track={track}
+                  />
+               );
+            })}
       </div>
    );
 };
@@ -52,7 +56,15 @@ TrackList.propTypes = {
    isRemoval: PropTypes.bool,
    onAdd: PropTypes.func,
    onRemoval: PropTypes.func,
-   tracks: PropTypes.shape([]),
+   tracks: PropTypes.arrayOf(
+      PropTypes.shape({
+         album: PropTypes.string,
+         artist: PropTypes.string,
+         id: PropTypes.string,
+         name: PropTypes.string,
+         uri: PropTypes.string,
+      })
+   ),
 };
 
 export default TrackList;
