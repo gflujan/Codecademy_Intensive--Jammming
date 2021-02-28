@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 // Context
 
 // Components
-import { App } from './components/App/App';
+import App from './components/App/App.js';
 
 // Assets
 // Constants
