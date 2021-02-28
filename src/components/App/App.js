@@ -5,15 +5,15 @@ import React, { Component } from 'react';
 // Context
 
 // Components
-import Playlist from '../Playlist/Playlist';
-import SearchBar from '../SearchBar/SearchBar';
-import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist.js';
+import SearchBar from '../SearchBar/SearchBar.js';
+import SearchResults from '../SearchResults/SearchResults.js';
 
 // Assets
 // Constants
 
 // Utils / Methods
-import Spotify from '../../util/Spotify';
+import Spotify from '../../util/Spotify.js';
 
 // Styles
 import './App.css';
