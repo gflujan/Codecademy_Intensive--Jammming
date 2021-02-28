@@ -20,9 +20,6 @@ import "./TrackList.css";
 /* ========================================================================== */
 const TrackList = (props) => {
    const { isRemoval, onAdd, onRemove, tracks } = props;
-   console.log("🚀--BLLR? ------------------------------------------------------------");
-   console.log("🚀--BLLR? -> file: TrackList.js -> line 23 -> tracks", tracks);
-   console.log("🚀--BLLR? ------------------------------------------------------------");
 
    return (
       <div className="TrackList">
