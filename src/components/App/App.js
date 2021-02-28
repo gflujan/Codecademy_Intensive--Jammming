@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 // Context
 
 // Components
-import Playlist from '../Playlist/Playlist.js';
-import SearchBar from '../SearchBar/SearchBar.js';
-import SearchResults from '../SearchResults/SearchResults.js';
+import Playlist from '../Playlist/Playlist';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchResults/SearchResults';
 
 // Assets
 // Constants
