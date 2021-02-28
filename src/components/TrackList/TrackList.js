@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Packages
 // Context
@@ -22,7 +23,7 @@ const TrackList = props => {
 
    return (
       <div className="TrackList">
-         {!!tracks.length && tracks.map(track => {
+         {tracks.length > 0 && tracks.map(track => {
             return (
                <Track
                   isRemoval={isRemoval}
@@ -35,6 +36,23 @@ const TrackList = props => {
          })}
       </div>
    );
+};
+
+/* ========================================================================== */
+/* PROP TYPES DECLARATIONS */
+/* ========================================================================== */
+TrackList.defaultProps = {
+   isRemoval: true,
+   onAdd: () => {},
+   onRemoval: () => {},
+   tracks: [],
+};
+
+TrackList.propTypes = {
+   isRemoval: PropTypes.bool,
+   onAdd: PropTypes.func,
+   onRemoval: PropTypes.func,
+   tracks: PropTypes.shape([]),
 };
 
 export default TrackList;
