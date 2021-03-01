@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // Packages
-import chalk from 'chalk';
+// import chalk from 'chalk';
 
 // Context
 
@@ -111,16 +111,14 @@ class App extends Component {
    }
 
    render() {
-      const isProd = process.env.NODE_ENV === 'production';
-
-      console.log(chalk.red('🚀--BLLR?: ================================================'));
-      console.log(chalk.green('🚀--BLLR?: HOLA?! COMO SE VISTE ESTE PINCHE NODE_ENV? ->', process.env.NODE_ENV));
-      console.log(chalk.red('🚀--BLLR?: ================================================'));
+      console.log('🚀--BLLR?: ================================================');
+      console.log('🚀--BLLR?: IS BUELLER ENV VAR HERE? ->', process.env.REACT_APP_BUELLER);
+      console.log('🚀--BLLR?: ================================================');
 
       return (
          <div>
             <div className="App">
-               <h1>{isProd ? 'Sloane Loves Mullet' : 'Spotify Playlist Maker'}</h1>
+               <h1>Spotify Playlist Maker</h1>
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
                   <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />

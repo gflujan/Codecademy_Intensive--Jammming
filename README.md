@@ -1,18 +1,19 @@
 # Spotify Playlist Maker 
 
-## A Spotify clone made with `create-react-app` 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b63b02e-5dd1-46a4-a0dc-d01330556ded/deploy-status)](https://app.netlify.com/sites/spotify-pm/deploys)
+
+## A Spotify playlist utility that was made with `create-react-app`. 
 
 This app uses the following: 
 
 1. React (frontend) 
 2. Spotify API's 
-3. Heroku (deployment) 
-4. [Create React App Buildbpack](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack) 
+3. Netlify (deployment) 
 
 ## Site Links 
 
 - [Main Site](https://spotifyplaylistmaker.app) 
-- [Heroku Prod](https://spotify-pm.herokuapp.com) 
+- [Netlify Prod](https://spotify-pm.netlify.app) 
 
 ## Overview 
 
