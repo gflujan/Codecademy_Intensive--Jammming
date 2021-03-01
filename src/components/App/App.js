@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // Packages
-// import chalk from 'chalk';
+import chalk from 'chalk';
 
 // Context
 
@@ -112,6 +112,11 @@ class App extends Component {
 
    render() {
       const isProd = process.env.NODE_ENV === 'production';
+
+      console.log(chalk.red('🚀--BLLR?: ================================================'));
+      console.log(chalk.green('🚀--BLLR?: WHAT DOES $NODE_ENV LOOK LIKE? ->', process.env.NODE_ENV));
+      // console.log($NODE_ENV);
+      console.log(chalk.red('🚀--BLLR?: ================================================'));
 
       return (
          <div>
