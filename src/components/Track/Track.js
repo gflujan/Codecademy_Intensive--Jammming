@@ -30,14 +30,14 @@ const Track = props => {
                </p>
             </div>
             {isRemoval && (
-               <a className="Track-action" onClick={() => onRemove(track)}>
+               <button className="Track-action" onClick={() => onRemove(track)}>
                   -
-               </a>
+               </button>
             )}
             {!isRemoval && (
-               <a className="Track-action" onClick={() => onAdd(track)}>
+               <button className="Track-action" onClick={() => onAdd(track)}>
                   +
-               </a>
+               </button>
             )}
          </div>
       </div>

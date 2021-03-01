@@ -34,9 +34,9 @@ class Playlist extends React.Component {
                onRemove={this.props.onRemove}
                tracks={this.props.playlistTracks}
             />
-            <a className="Playlist-save" onClick={this.props.onSave}>
+            <button className="Playlist-save" onClick={this.props.onSave}>
                SAVE TO SPOTIFY
-            </a>
+            </button>
             {/* This SAVE button triggers a POST request to the Spotify API */}
             {/* It needs to grab an Object from the TrackList module to send to Spotify */}
          </div>
