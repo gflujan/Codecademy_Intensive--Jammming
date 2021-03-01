@@ -28,4 +28,8 @@ Once you have all the songs you want, you give the playlist a name and hit that 
 
 Coming Soon... 
 
+## Design Screens 
+
+<img src="./src/media/img/design-mock-01.png" alt="Home Page Design" width="544"/>
+
 more
