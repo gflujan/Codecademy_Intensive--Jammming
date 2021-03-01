@@ -24,7 +24,7 @@ class App extends Component {
 
       this.state = {
          playlistName: "",
-         playlistNamePlaceholder: "Playlist name",
+         playlistNamePlaceholder: "Enter a name...",
          playlistTracks: [],
          searchResults: [],
       };
