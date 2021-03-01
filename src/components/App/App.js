@@ -1,30 +1,30 @@
 // React
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 // Packages
 // Context
 
 // Components
-import Playlist from '../Playlist/Playlist.js';
-import SearchBar from '../SearchBar/SearchBar.js';
-import SearchResults from '../SearchResults/SearchResults.js';
+import Playlist from "../Playlist/Playlist.js";
+import SearchBar from "../SearchBar/SearchBar.js";
+import SearchResults from "../SearchResults/SearchResults.js";
 
 // Assets
 // Constants
 
 // Utils / Methods
-import Spotify from '../../util/Spotify.js';
+import Spotify from "../../util/Spotify.js";
 
 // Styles
-import './App.css';
+import "./App.css";
 
 class App extends Component {
    constructor(props) {
       super(props);
 
       this.state = {
-         playlistName: '',
-         playlistNamePlaceholder: 'Playlist name',
+         playlistName: "",
+         playlistNamePlaceholder: "Playlist name",
          playlistTracks: [],
          searchResults: [],
       };
@@ -32,29 +32,29 @@ class App extends Component {
       [
          // prettier-ignore
          'addTrack',
-         'clear',
-         'clearPlaylistNamePlaceholder',
-         'removeTrack',
-         'restorePlaylistNamePlaceholder',
-         'savePlaylist',
-         'search',
-         'updatePlaylistName',
-      ].forEach(m => {
+         "clear",
+         "clearPlaylistNamePlaceholder",
+         "removeTrack",
+         "restorePlaylistNamePlaceholder",
+         "savePlaylist",
+         "search",
+         "updatePlaylistName",
+      ].forEach((m) => {
          this[m] = this[m].bind(this);
       });
    }
 
    // VERSION 1 - Search Method -- This gives the "TypeError: this.props.tracks.map is not a function"
    search(term) {
-      Spotify.search(term).then(searchResults => {
+      Spotify.search(term).then((searchResults) => {
          this.setState({ searchResults });
       });
    }
 
    clear() {
       this.setState({
-         playlistName: '',
-         playlistNamePlaceholder: 'Playlist name',
+         playlistName: "",
+         playlistNamePlaceholder: "Playlist name",
          playlistTracks: [],
          searchResults: [],
       });
@@ -62,9 +62,7 @@ class App extends Component {
 
    addTrack(track) {
       const { playlistTracks } = this.state;
-      const foundTrackID = playlistTracks.find(
-         savedTrack => savedTrack.id === track.id,
-      );
+      const foundTrackID = playlistTracks.find((savedTrack) => savedTrack.id === track.id);
 
       // Prevents the user from adding duplicates (i.e. the same song) to the playlist
       if (foundTrackID) {
@@ -77,7 +75,7 @@ class App extends Component {
 
    removeTrack(track) {
       const newPlaylistTracks = this.state.playlistTracks.filter(
-         savedTrack => savedTrack.id !== track.id,
+         (savedTrack) => savedTrack.id !== track.id
       );
 
       this.setState({ playlistTracks: newPlaylistTracks });
@@ -86,14 +84,14 @@ class App extends Component {
    // Update state to reflect focusing playlist name field
    clearPlaylistNamePlaceholder() {
       this.setState({
-         playlistNamePlaceholder: '',
+         playlistNamePlaceholder: "",
       });
    }
 
    // Update state to reflect blurring playlist name field
    restorePlaylistNamePlaceholder() {
       this.setState({
-         playlistNamePlaceholder: 'Playlist name',
+         playlistNamePlaceholder: "Playlist name",
       });
    }
 
@@ -105,7 +103,7 @@ class App extends Component {
       Spotify.savePlaylist();
 
       this.setState({
-         playlistName: '',
+         playlistName: "",
          playlistTracks: [],
       });
    }
@@ -113,16 +111,11 @@ class App extends Component {
    render() {
       return (
          <div>
-            <h1>
-               Neo's [Ja<span className="highlight">mmm</span>ing] App
-            </h1>
+            <h1>Spotify Playlist Maker</h1>
             <div className="App">
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
-                  <SearchResults
-                     onAdd={this.addTrack}
-                     searchResults={this.state.searchResults}
-                  />
+                  <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />
                   <Playlist
                      onBlur={this.restorePlaylistNamePlaceholder}
                      onFocus={this.clearPlaylistNamePlaceholder}
