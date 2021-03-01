@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 
 // Packages
+import chalk from 'chalk';
+
 // Context
 
 // Components
@@ -109,6 +111,10 @@ class App extends Component {
    }
 
    render() {
+      console.log(chalk.red('🚀--BLLR?: ================================================'));
+      console.log(chalk.green.bold('🚀--BLLR?: IS NODE_ENV HERE? ->'), process.env.NODE_ENV);
+      console.log(chalk.red('🚀--BLLR?: ================================================'));
+
       return (
          <div>
             <h1>Spotify Playlist Maker</h1>
