@@ -111,14 +111,12 @@ class App extends Component {
    }
 
    render() {
-      console.log(chalk.red('🚀--BLLR?: ================================================'));
-      console.log(chalk.green.bold('🚀--BLLR?: IS NODE_ENV HERE? ->'), process.env.NODE_ENV);
-      console.log(chalk.red('🚀--BLLR?: ================================================'));
+      const isProd = process.env.NODE_ENV === 'production';
 
       return (
          <div>
-            <h1>Spotify Playlist Maker</h1>
             <div className="App">
+               <h1>{isProd ? 'Bueller Lives Here?' : 'Spotify Playlist Maker'}</h1>
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
                   <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />
