@@ -111,10 +111,6 @@ class App extends Component {
    }
 
    render() {
-      console.log('🚀--BLLR?: ================================================');
-      console.log('🚀--BLLR?: HOW ABOUT THIS BUELLER ENV VAR? ->', process.env.BUELLER);
-      console.log('🚀--BLLR?: ================================================');
-
       return (
          <div>
             <div className="App">
