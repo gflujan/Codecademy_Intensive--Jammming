@@ -116,7 +116,7 @@ class App extends Component {
       return (
          <div>
             <div className="App">
-               <h1>{isProd ? 'Bueller Lives Here?' : 'Spotify Playlist Maker'}</h1>
+               <h1>{isProd ? 'Sloane Loves Mullet' : 'Spotify Playlist Maker'}</h1>
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
                   <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />
