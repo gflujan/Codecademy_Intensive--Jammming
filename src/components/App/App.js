@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // Packages
-import chalk from 'chalk';
+// import chalk from 'chalk';
 
 // Context
 
