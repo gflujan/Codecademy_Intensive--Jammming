@@ -1,9 +1,9 @@
 const keys = require('../config/keys.js');
 const redirect = require('../config/redirect.js');
 
-const myClientId = keys.spotifyClientId;
-const myRedirectUri = redirect.myRedirectUri;
-const url = 'https://api.spotify.com';
+const SPOTIFY_API_URL = 'https://api.spotify.com';
+const { CLIENT_ID } = keys;
+const { REDIRECT_URI } = redirect;
 
 let userAccessToken;
 // I don't like this, but if I don't assign something to it, and just use "const userAccessToken;",
@@ -31,7 +31,7 @@ const Spotify = {
          return userAccessToken;
       } else {
          // if ((userAccessToken) && !accessTokenInUrl) {
-         window.location = `https://accounts.spotify.com/authorize?client_id=${myClientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${myRedirectUri}`;
+         window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
       }
    },
 
@@ -40,7 +40,7 @@ const Spotify = {
 
       return fetch(
          // This fetch request sends the search query to the Spotify API
-         `${url}/v1/search?type=track&q=${term}`,
+         `${SPOTIFY_API_URL}/v1/search?type=track&q=${term}`,
          {
             headers: {
                Authorization: `Bearer ${retrievedAccessToken}`,
@@ -80,7 +80,7 @@ const Spotify = {
       let userId;
 
       // This fetch request GETs the current users Spotify profile
-      return fetch(`${url}/v1/me`, { headers })
+      return fetch(`${SPOTIFY_API_URL}/v1/me`, { headers })
          .then(response => {
             // Converting the response into a JSON object
             if (response.ok) {
@@ -91,7 +91,7 @@ const Spotify = {
             userId = jsonResponse.id; // This assigns the fetched profile ID to the variable 'userId'
 
             // This fetch action POSTs to the users account and creates a new playlist
-            return fetch(`${url}/v1/users/${userId}/playlists`, {
+            return fetch(`${SPOTIFY_API_URL}/v1/users/${userId}/playlists`, {
                body: JSON.stringify({ name: playlistName }),
                headers,
                method: 'POST',
@@ -106,7 +106,7 @@ const Spotify = {
                   playlistId = jsonResponse.id; // This assigns the fetched playlist ID to the variable 'playlistId'
 
                   return fetch(
-                     `${url}/v1/users/${userId}/playlists/${playlistId}/tracks`,
+                     `${SPOTIFY_API_URL}/v1/users/${userId}/playlists/${playlistId}/tracks`,
                      {
                         // This fetch action POSTs to the users account and adds the tracks to the playlist?
                         body: JSON.stringify({ uris: trackURIs }),

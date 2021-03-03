@@ -114,7 +114,9 @@ class App extends Component {
       return (
          <div>
             <div className="App">
-               <h1>Spotify Playlist Maker</h1>
+               <h1>
+                  <a href="/">Spotify Playlist Maker</a>
+               </h1>
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
                   <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />

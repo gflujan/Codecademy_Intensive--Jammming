@@ -14,29 +14,35 @@ html {
 h1 {
    background-color: #010c3f;
    color: #ffffff;
-   font-family: 'Poppins', sans-serif;
+   font-family: "Poppins", sans-serif;
    font-size: 1.88rem;
    padding: 0.77rem 0;
    text-align: center;
 }
 
-h1 .highlight {
-   color: #6c41ec;
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+a:focus {
+   border: none;
+   outline: none;
 }
 
 h2 {
-   font-family: 'Poppins', sans-serif;
+   font-family: "Poppins", sans-serif;
    font-size: 1.55rem;
 }
 
 .App {
-   background-image: url('../../media/img/spotify-pm-bg.jpg');
+   background-image: url("../../media/img/spotify-pm-bg.jpg");
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
    bottom: 0;
    color: #ffffff;
-   font-family: 'Work Sans', sans-serif;
+   font-family: "Work Sans", sans-serif;
    font-weight: 500;
    left: 0;
    padding: 0 17% 10% 17%;

@@ -1,5 +1,5 @@
 module.exports = {
-   spotifyClientId: '73b375e9930846329057f8f9b18e7708',
+   CLIENT_ID: '73b375e9930846329057f8f9b18e7708',
 };
 
 // https://vrrajkum.github.io/Jammming/
