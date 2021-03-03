@@ -38,7 +38,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["ajv", "npm:6.12.6"],
+            ["axios", "npm:0.21.1"],
             ["chalk", "npm:2.4.2"],
+            ["http-status-codes", "npm:2.1.4"],
             ["intern", "npm:4.9.0"],
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:16.14.0"],
@@ -5332,6 +5334,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["follow-redirects", "npm:1.5.10"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:0.21.1", {
+          "packageLocation": "./.yarn/cache/axios-npm-0.21.1-d192f6b3b3-864fb7b5d0.zip/node_modules/axios/",
+          "packageDependencies": [
+            ["axios", "npm:0.21.1"],
+            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.3"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["axobject-query", [
@@ -9368,10 +9378,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:a313c479c5c7e54d9ec8fbeeea69ff640f56b8989ea2dff42351a3fa5c4061fb80a52d8ede0f0826a181a216820c2d2c3f15da881e7fdf31cef1c446e42f0c45#npm:1.13.3", {
-          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-66f5a556bc/0/cache/follow-redirects-npm-1.13.3-bc35dfad3e-9ad74c3b66.zip/node_modules/follow-redirects/",
+        ["virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.3", {
+          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-355f55dffb/0/cache/follow-redirects-npm-1.13.3-bc35dfad3e-9ad74c3b66.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "virtual:a313c479c5c7e54d9ec8fbeeea69ff640f56b8989ea2dff42351a3fa5c4061fb80a52d8ede0f0826a181a216820c2d2c3f15da881e7fdf31cef1c446e42f0c45#npm:1.13.3"],
+            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.3"],
             ["debug", null]
           ],
           "packagePeers": [
@@ -10278,7 +10288,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["http-proxy", "npm:1.18.1"],
             ["eventemitter3", "npm:4.0.7"],
-            ["follow-redirects", "virtual:a313c479c5c7e54d9ec8fbeeea69ff640f56b8989ea2dff42351a3fa5c4061fb80a52d8ede0f0826a181a216820c2d2c3f15da881e7fdf31cef1c446e42f0c45#npm:1.13.3"],
+            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.3"],
             ["requires-port", "npm:1.0.0"]
           ],
           "linkType": "HARD",
@@ -10305,6 +10315,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["assert-plus", "npm:1.0.0"],
             ["jsprim", "npm:1.4.1"],
             ["sshpk", "npm:1.16.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["http-status-codes", [
+        ["npm:2.1.4", {
+          "packageLocation": "./.yarn/cache/http-status-codes-npm-2.1.4-e5672be5a5-7cd5b1c88e.zip/node_modules/http-status-codes/",
+          "packageDependencies": [
+            ["http-status-codes", "npm:2.1.4"]
           ],
           "linkType": "HARD",
         }]
@@ -16895,7 +16914,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["spotify-playlist-maker", "workspace:."],
             ["ajv", "npm:6.12.6"],
+            ["axios", "npm:0.21.1"],
             ["chalk", "npm:2.4.2"],
+            ["http-status-codes", "npm:2.1.4"],
             ["intern", "npm:4.9.0"],
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:16.14.0"],

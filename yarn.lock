@@ -3061,6 +3061,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "axios@npm:0.21.1"
+  dependencies:
+    follow-redirects: ^1.10.0
+  checksum: 864fb7b5d077d236737f10adca53bf451a93f35a15271f56fba8da07265a02d26b7d881b935a6697dc6adb0549ea3e56d2eecb403edaa3bb78f6479901c10f69
+  languageName: node
+  linkType: hard
+
 "axios@npm:~0.19.0":
   version: 0.19.2
   resolution: "axios@npm:0.19.2"
@@ -6460,7 +6469,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.10.0":
   version: 1.13.3
   resolution: "follow-redirects@npm:1.13.3"
   peerDependenciesMeta:
@@ -7306,6 +7315,13 @@ fsevents@~2.3.1:
     jsprim: ^1.2.2
     sshpk: ^1.7.0
   checksum: d28227eed37cb0dae0e76c46b2a5e611c678808433e5642238f17dba7f2c9c8f8d1646122d57ec1a110ecc7e8b9f5b7aa0462f1e2a5fa3b41f2fca5a69af7edf
+  languageName: node
+  linkType: hard
+
+"http-status-codes@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "http-status-codes@npm:2.1.4"
+  checksum: 7cd5b1c88e25541f6a2ec57dec257295ca5c7d996c8cb1d9d55cce84b63712978a94e649575f6ffac33b975101d4ef3e4f07c7e4e764b0290832a5a8419409a7
   languageName: node
   linkType: hard
 
@@ -13236,7 +13252,9 @@ resolve@~1.11.1:
   resolution: "spotify-playlist-maker@workspace:."
   dependencies:
     ajv: ^6.5.2
+    axios: ^0.21.1
     chalk: ^2.4.2
+    http-status-codes: ^2.1.4
     intern: ^4.9.0
     prop-types: ^15.6.2
     react: ^16.3.1
