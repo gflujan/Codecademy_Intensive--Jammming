@@ -2,6 +2,7 @@
    "name": "spotify-playlist-maker",
    "version": "0.1.0",
    "private": true,
+   "homepage": ".",
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
@@ -30,5 +31,8 @@
    },
    "devDependencies": {
       "intern": "^4.9.0"
+   },
+   "engines": {
+      "node": ">=15.10.0"
    }
 }
