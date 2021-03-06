@@ -7,6 +7,7 @@ import React, { Component } from "react";
 // Context
 
 // Components
+import Header from './Header.js';
 import Playlist from "../Playlist/Playlist.js";
 import SearchBar from "../SearchBar/SearchBar.js";
 import SearchResults from "../SearchResults/SearchResults.js";
@@ -15,7 +16,7 @@ import SearchResults from "../SearchResults/SearchResults.js";
 // Constants
 
 // Utils / Methods
-import Spotify from "../../util/Spotify.js";
+import Spotify from "../../utils/Spotify.js";
 
 // Styles
 import "./App.css";
@@ -114,9 +115,7 @@ class App extends Component {
       return (
          <div>
             <div className="App">
-               <h1>
-                  <a href="/">Spotify Playlist Maker</a>
-               </h1>
+               <Header />
                <SearchBar onClear={this.clear} onSearch={this.search} />
                <div className="App-playlist">
                   <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />
