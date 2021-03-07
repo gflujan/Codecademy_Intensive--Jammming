@@ -1,3 +1,5 @@
 [build]
-   functions = "lib/api"
-   publish = "build"
+   base = "/"
+   functions = "lib/api/"
+   command = "yarn build"
+   publish = "build/"

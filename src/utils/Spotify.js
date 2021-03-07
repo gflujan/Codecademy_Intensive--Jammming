@@ -10,7 +10,7 @@ import { getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes } from "http
 // Utils / Methods
 import logger from "./Logger.js";
 
-const { SPOTIFY_API_BASE_URL } = process.env;
+const { API_BASE_URL } = process.env;
 
 const Spotify = {
    login() {
@@ -32,7 +32,7 @@ const Spotify = {
 
    //    return fetch(
    //       // This fetch request sends the search query to the Spotify API
-   //       `${SPOTIFY_API_BASE_URL}/v1/search?type=track&q=${term}`,
+   //       `${API_BASE_URL}/v1/search?type=track&q=${term}`,
    //       {
    //          headers: {
    //             Authorization: `Bearer ${retrievedAccessToken}`,
@@ -72,7 +72,7 @@ const Spotify = {
    //    let userId;
 
    //    // This fetch request GETs the current users Spotify profile
-   //    return fetch(`${SPOTIFY_API_BASE_URL}/v1/me`, { headers })
+   //    return fetch(`${API_BASE_URL}/v1/me`, { headers })
    //       .then((response) => {
    //          // Converting the response into a JSON object
    //          if (response.ok) {
@@ -83,7 +83,7 @@ const Spotify = {
    //          userId = jsonResponse.id; // This assigns the fetched profile ID to the variable 'userId'
 
    //          // This fetch action POSTs to the users account and creates a new playlist
-   //          return fetch(`${SPOTIFY_API_BASE_URL}/v1/users/${userId}/playlists`, {
+   //          return fetch(`${API_BASE_URL}/v1/users/${userId}/playlists`, {
    //             body: JSON.stringify({ name: playlistName }),
    //             headers,
    //             method: "POST",
@@ -98,7 +98,7 @@ const Spotify = {
    //                playlistId = jsonResponse.id; // This assigns the fetched playlist ID to the variable 'playlistId'
 
    //                return fetch(
-   //                   `${SPOTIFY_API_BASE_URL}/v1/users/${userId}/playlists/${playlistId}/tracks`,
+   //                   `${API_BASE_URL}/v1/users/${userId}/playlists/${playlistId}/tracks`,
    //                   {
    //                      // This fetch action POSTs to the users account and adds the tracks to the playlist?
    //                      body: JSON.stringify({ uris: trackURIs }),
