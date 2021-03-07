@@ -1,6 +1,7 @@
 // Packages
 import axios from "axios";
 import chalk from "chalk";
+import { getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes } from "http-status-codes";
 
 // Clients
 // Middleware
@@ -15,10 +16,15 @@ const Spotify = {
    login() {
       logger.info(chalk.cyan("Connecting to the Spotify auth service..."));
 
+      console.log('🚀--BLLR? ---------------------------------------------------------------------');
+      console.log('🚀--BLLR? -> file: login.js -> line 4 -> ReasonPhrases', ReasonPhrases);
+      console.log('🚀--BLLR? -> file: login.js -> line 4 -> StatusCodes', StatusCodes);
+      console.log('🚀--BLLR? ---------------------------------------------------------------------');
+
       axios
-         .get(".netlify/lib/api/login")
-         .then((resp) => {})
-         .catch((err) => {});
+         .get("/.netlify/functions/login")
+         .then((response) => console.log("LOGIN -> THEN -> RESPONSE ->", response))
+         .catch((error) => console.error("LOGIN -> CATCH -> ERROR ->", error));
    },
 
    // search(term) {
