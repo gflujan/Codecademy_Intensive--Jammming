@@ -25,9 +25,11 @@ class App extends Component {
    constructor(props) {
       super(props);
 
+      const PLAYLIST_NAME_PLACEHOLDER = "Enter a name...";
+
       this.state = {
          playlistName: "",
-         playlistNamePlaceholder: "Enter a name...",
+         playlistNamePlaceholder: this.PLAYLIST_NAME_PLACEHOLDER,
          playlistTracks: [],
          searchResults: [],
       };
@@ -57,7 +59,7 @@ class App extends Component {
    clear() {
       this.setState({
          playlistName: "",
-         playlistNamePlaceholder: "Playlist name",
+         playlistNamePlaceholder: this.PLAYLIST_NAME_PLACEHOLDER,
          playlistTracks: [],
          searchResults: [],
       });
