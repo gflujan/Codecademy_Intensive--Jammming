@@ -13,7 +13,7 @@ const { SPOTIFY_API_BASE_URL } = process.env;
 
 const Spotify = {
    login() {
-      logger.info(chalk.cyan("Attempting to connect to the Spotify auth service..."));
+      logger.info(chalk.cyan("Connecting to the Spotify auth service..."));
 
       axios
          .get(".netlify/lib/api/login")
