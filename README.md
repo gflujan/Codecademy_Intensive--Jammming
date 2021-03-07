@@ -13,8 +13,8 @@ This app uses the following:
 
 ## Site Links 
 
-- [Main Site](https://spotifyplaylistmaker.app) 
-- [Backup Link](https://spotify-pm.netlify.app) 
+- Main Site: [https://spotifyplaylistmaker.app](https://spotifyplaylistmaker.app) 
+- Secondary Link: [https://spotify-pm.netlify.app](https://spotify-pm.netlify.app) 
 
 ## About 
 

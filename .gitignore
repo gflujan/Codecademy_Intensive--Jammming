@@ -4,8 +4,5 @@
 ./[bB]uild
 ./[bB]uild/**/*
 
-# Secrets
-/src/config/keys.js
-
 # misc
 .DS_Store
