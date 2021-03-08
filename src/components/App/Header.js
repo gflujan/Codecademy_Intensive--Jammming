@@ -8,7 +8,7 @@ import React from "react";
 // Constants
 
 // Utils / Methods
-import Spotify from '../../utils/Spotify.js';
+import Spotify from "../../utils/Spotify.js";
 
 // Styles
 
@@ -18,7 +18,9 @@ import Spotify from '../../utils/Spotify.js';
 const Header = (props) => {
    return (
       <header>
-         <h1>Spotify Playlist Maker</h1>
+         <h1>
+            <a href="/">Spotify Playlist Maker</a>
+         </h1>
          <button className="spotify-auth-btn" onClick={() => Spotify.login()} type="button">
             log in
          </button>

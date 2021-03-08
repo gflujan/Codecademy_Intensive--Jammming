@@ -1,7 +1,8 @@
 // Packages
 import axios from "axios";
 import chalk from "chalk";
-import { getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes } from "http-status-codes";
+// import { getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes } from "http-status-codes";
+import queryString from "query-string";
 
 // Clients
 // Middleware
@@ -10,58 +11,34 @@ import { getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes } from "http
 // Utils / Methods
 import logger from "./Logger.js";
 
-const { API_BASE_URL } = process.env;
-
 const Spotify = {
-   login() {
+   async login() {
       logger.info(chalk.cyan("Connecting to the Spotify auth service..."));
 
-      console.log('🚀--BLLR? ---------------------------------------------------------------------');
-      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> GET_REASON_PHRASE', getReasonPhrase);
-      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> GET_STATUS_CODE', getStatusCode);
-      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> REASON_PHRASES', ReasonPhrases);
-      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> STATUS_CODES', StatusCodes);
-      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_13 -> API_BASE_URL', API_BASE_URL);
-      console.log('🚀--BLLR? ---------------------------------------------------------------------');
+      // console.log("🚀--BLLR? --------------------------------------------------------------------");
+      // console.log("🚀--BLLR? -> f://SPOTIFY.js -> LINE_4 -> GET_REASON_PHRASE", getReasonPhrase);
+      // console.log("🚀--BLLR? -> f://SPOTIFY.js -> LINE_4 -> GET_STATUS_CODE", getStatusCode);
+      // console.log("🚀--BLLR? -> f://SPOTIFY.js -> LINE_4 -> REASON_PHRASES", ReasonPhrases);
+      // console.log("🚀--BLLR? -> f://SPOTIFY.js -> LINE_4 -> STATUS_CODES", StatusCodes);
+      // console.log("🚀--BLLR? --------------------------------------------------------------------");
 
-      axios
-         .get("/.netlify/functions/login")
-         .then((response) => console.log("LOGIN -> THEN -> RESPONSE ->", response))
-         .catch((error) => console.error("LOGIN -> CATCH -> ERROR ->", error));
+      try {
+         const response = await axios.get("/.netlify/functions/login?isCallback=false");
+
+         logger.info("LOGIN -> THEN -> RESPONSE ->", response);
+         // Set the `state` in the cookies
+         window.location.href = response.data.redirectURL;
+      } catch (error) {
+         logger.error("There was an error connecting to Spotify.");
+      }
    },
 
-   // search(term) {
-   //    // const retrievedAccessToken = Spotify.getAccessToken();
-
-   //    return fetch(
-   //       // This fetch request sends the search query to the Spotify API
-   //       `${API_BASE_URL}/v1/search?type=track&q=${term}`,
-   //       {
-   //          headers: {
-   //             Authorization: `Bearer ${retrievedAccessToken}`,
-   //          },
-   //       }
-   //    )
-   //       .then((response) => {
-   //          // Converting the response into a JSON object
-   //          if (response.ok) {
-   //             return response.json();
-   //          }
-   //       })
-   //       .then((jsonResponse) => {
-   //          // Sorting through the JSON object and pulling out the tracks, then returning an array with said tracks
-   //          if (!jsonResponse.tracks) {
-   //             return [];
-   //          }
-   //          return jsonResponse.tracks.items.map((track) => ({
-   //             id: track.id,
-   //             name: track.name,
-   //             artist: track.artists[0].name,
-   //             album: track.album.name,
-   //             uri: track.uri,
-   //          }));
-   //       });
-   // },
+   processCallback() {
+      logger.info("Processing the Spotify callback response...");
+      // Grab the `state` out of the cookies
+      const params = queryString.parse(window.location.search);
+      console.log(params);
+   },
 
    // savePlaylist(playlistName, trackURIs) {
    //    if (!playlistName || !trackURIs.length) {
@@ -118,6 +95,39 @@ const Spotify = {
    //       .catch((err) => {
    //          console.log("Whoops! Something went wrong getting the user profile.");
    //          console.log(err);
+   //       });
+   // },
+
+   // search(term) {
+   //    // const retrievedAccessToken = Spotify.getAccessToken();
+
+   //    return fetch(
+   //       // This fetch request sends the search query to the Spotify API
+   //       `${API_BASE_URL}/v1/search?type=track&q=${term}`,
+   //       {
+   //          headers: {
+   //             Authorization: `Bearer ${retrievedAccessToken}`,
+   //          },
+   //       }
+   //    )
+   //       .then((response) => {
+   //          // Converting the response into a JSON object
+   //          if (response.ok) {
+   //             return response.json();
+   //          }
+   //       })
+   //       .then((jsonResponse) => {
+   //          // Sorting through the JSON object and pulling out the tracks, then returning an array with said tracks
+   //          if (!jsonResponse.tracks) {
+   //             return [];
+   //          }
+   //          return jsonResponse.tracks.items.map((track) => ({
+   //             id: track.id,
+   //             name: track.name,
+   //             artist: track.artists[0].name,
+   //             album: track.album.name,
+   //             uri: track.uri,
+   //          }));
    //       });
    // },
 };
