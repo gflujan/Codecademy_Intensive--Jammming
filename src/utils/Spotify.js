@@ -17,11 +17,11 @@ const Spotify = {
       logger.info(chalk.cyan("Connecting to the Spotify auth service..."));
 
       console.log('🚀--BLLR? ---------------------------------------------------------------------');
-      console.log('🚀--BLLR? -> file: login.js -> line 4 -> getReasonPhrase', getReasonPhrase);
-      console.log('🚀--BLLR? -> file: login.js -> line 4 -> getStatusCode', getStatusCode);
-      console.log('🚀--BLLR? -> file: login.js -> line 4 -> ReasonPhrases', ReasonPhrases);
-      console.log('🚀--BLLR? -> file: login.js -> line 4 -> StatusCodes', StatusCodes);
-      console.log('🚀--BLLR? -> file: login.js -> line 13 -> API_BASE_URL', API_BASE_URL);
+      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> GET_REASON_PHRASE', getReasonPhrase);
+      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> GET_STATUS_CODE', getStatusCode);
+      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> REASON_PHRASES', ReasonPhrases);
+      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_4 -> STATUS_CODES', StatusCodes);
+      console.log('🚀--BLLR? -> f://LOGIN.js -> LINE_13 -> API_BASE_URL', API_BASE_URL);
       console.log('🚀--BLLR? ---------------------------------------------------------------------');
 
       axios
